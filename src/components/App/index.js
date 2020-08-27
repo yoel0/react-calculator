@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
+import menu from '../../assets/menu.png';
 
 import Button from "../Button";
 import './App.css';
 
 
 const App = () => {
+  const [time, setTime] = useState(new Date());
   const [value, setValue] = useState("0");
   const [memory, setMemory] = useState(null);
   const [operator, setOperator] = useState(null);
@@ -28,6 +30,13 @@ const App = () => {
       setValue((num / 100).toString());
       setMemory(null);
       setOperator(null);
+      return;
+    }
+
+    if (content === '.') {
+      if (value.includes('.')) return;
+
+      setValue(value + '.');
       return;
     }
 
@@ -124,7 +133,13 @@ const App = () => {
       return;
     }
 
+    if (value[value.length - 1] === '.') {
+      setValue(value + content);
+    } else {
     setValue((parseFloat(num + content)).toString());
+
+    }
+
   };
 
   return <div className="App">
