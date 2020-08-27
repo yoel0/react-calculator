@@ -6,13 +6,53 @@ import './App.css';
 
 const App = () => {
   const [value, setValue] = useState("0");
+  const [memory, setMemory] = useState(null);
 
   const handleButtonPress = content => () => {
+    const num = parseFloat(value);
+
     if (content === 'AC') {
       setValue('0');
+      setMemory(null);
+      return;
     }
 
-    setValue((parseFloat(value) + content).toString());
+    if (content === '±') {
+      setValue((num * -1).toString());
+      return;
+    }
+
+    if (content === '%') {
+      setValue((num / 100).toString());
+      setMemory(null);
+      return;
+    }
+
+    if (content === '+') {
+      setMemory(parseFloat(value));
+      setValue("0");
+      return;
+    }
+
+    if (content === '−') {
+      setMemory(parseFloat(value));
+      setValue("0");
+      return;
+    }
+
+    if (content === '×') {
+      setMemory(parseFloat(value));
+      setValue("0");
+      return;
+    }
+    
+    if (content === '÷') {
+      setMemory(parseFloat(value));
+      setValue("0");
+      return;
+    }
+
+    setValue((parseFloat(num + content)).toString());
   };
 
   return <div className="App">
