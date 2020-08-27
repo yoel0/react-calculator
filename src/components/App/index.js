@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import menu from '../../assets/menu.png';
-
 import Button from "../Button";
+import commafy from "../utils/commafy";
 import './App.css';
 
 
@@ -10,6 +10,11 @@ const App = () => {
   const [value, setValue] = useState("0");
   const [memory, setMemory] = useState(null);
   const [operator, setOperator] = useState(null);
+
+  useEffect(() => {
+    setTime(new Date());
+  }, [new Date().getMinutes()]);
+// TODO: figure out how to get time to work
 
   const handleButtonPress = content => () => {
     const num = parseFloat(value);
@@ -145,13 +150,21 @@ const App = () => {
   return <div className="App">
     <div className="top">
       <div className="time">
-      {time.getHours()}:{time.getMinutes()}
+      {time
+      .getHours()
+      .toString()
+      .padStart(2, 0)}
+      :
+      {time
+      .getMinutes()
+      .toString()
+      .padStart(2, 0)}
       </div>
       <div className="menu">
         <img src={menu} alt="menu" />
       </div>
     </div>
-    <div className="display">{value}</div>
+    <div className="display">{commafy(value)}</div>
     <div className="buttons">
       <Button onButtonClick={handleButtonPress} content="AC" type="function"/>
       <Button onButtonClick={handleButtonPress} content="±" type="function"/>
@@ -173,8 +186,7 @@ const App = () => {
       <Button onButtonClick={handleButtonPress} content="."/>
       <Button onButtonClick={handleButtonPress} content="=" type="operator"/>
     </div>
-    <div className="bottom">-</div>
-
+    <div className="bottom" />
   </div>
 };
 
