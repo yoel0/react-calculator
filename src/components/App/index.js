@@ -32,34 +32,93 @@ const App = () => {
     }
 
     if (content === '+') {
+      if(operator !== null) {
+        if (operator === '+') {
+          setMemory(memory + parseFloat(value));
+        } else if (operator === '−') {
+          setMemory(memory - parseFloat(value));
+        } else if (operator === '×') {
+          setMemory(memory * parseFloat(value));
+        } else if (operator === '÷') {
+          setMemory(memory / parseFloat(value));
+        }
+      } else {
       setMemory(parseFloat(value));
+      }
       setValue("0");
       setOperator("+")
       return;
     }
 
     if (content === '−') {
+      if(operator !== null) {
+        if (operator === '+') {
+          setMemory(memory + parseFloat(value));
+        } else if (operator === '−') {
+          setMemory(memory - parseFloat(value));
+        } else if (operator === '×') {
+          setMemory(memory * parseFloat(value));
+        } else if (operator === '÷') {
+          setMemory(memory / parseFloat(value));
+        }
+      } else {
       setMemory(parseFloat(value));
+      }
       setValue("0");
       setOperator("−");
       return;
     }
 
     if (content === '×') {
+      if(operator !== null) {
+        if (operator === '+') {
+          setMemory(memory + parseFloat(value));
+        } else if (operator === '−') {
+          setMemory(memory - parseFloat(value));
+        } else if (operator === '×') {
+          setMemory(memory * parseFloat(value));
+        } else if (operator === '÷') {
+          setMemory(memory / parseFloat(value));
+        }
+      } else {
       setMemory(parseFloat(value));
+      }
       setValue("0");
       setOperator("×");
       return;
     }
 
     if (content === '÷') {
+      if(operator !== null) {
+        if (operator === '+') {
+          setMemory(memory + parseFloat(value));
+        } else if (operator === '−') {
+          setMemory(memory - parseFloat(value));
+        } else if (operator === '×') {
+          setMemory(memory * parseFloat(value));
+        } else if (operator === '÷') {
+          setMemory(memory / parseFloat(value));
+        }
+      } else {
       setMemory(parseFloat(value));
+      }
       setValue("0");
       setOperator("÷");
       return;
     }
 
     if (content === '=') {
+      if (!operator) return;
+
+      if (operator === '+') {
+        setValue((memory + parseFloat(value)).toString());
+      } else if (operator === '−') {
+        setValue((memory - parseFloat(value)).toString());
+      } else if (operator === '×') {
+        setValue((memory * parseFloat(value)).toString());
+      } else if (operator === '÷') {
+        setValue((memory / parseFloat(value)).toString());
+      }
       setMemory(null);
       setOperator(null);
       return;
