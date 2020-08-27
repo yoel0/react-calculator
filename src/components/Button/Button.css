@@ -18,3 +18,12 @@
   justify-content: flex-start;
   padding-left: 43px;
 }
+
+.Button.function {
+  color: black;
+  background: #a5a5a5;
+}
+
+.Button.operator {
+  background: #f1a33c;
+}
