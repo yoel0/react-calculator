@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Button from "../Button";
 import commafy from "../utils/commafy";
 import "./App.css";
+import loner from '../../assets/lonersynth.jpg'
 
 const App = () => {
   const [time, setTime] = useState(new Date());

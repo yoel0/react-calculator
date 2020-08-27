@@ -2,7 +2,7 @@
   background: black;
   border-radius: 50px;
   color: white;
-  height: 1218px;
+  height: 1000px;
   padding: 20px;
   position: relative;
   width: 563px;
@@ -10,7 +10,7 @@
 
 .top {
   display: flex;
-  height: 250px;
+  height: 100px;
   justify-content: space-between;
   padding: 0 20px;
 }
